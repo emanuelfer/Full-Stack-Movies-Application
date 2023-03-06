@@ -17,7 +17,7 @@ public class ReviewService {
 
         mongoTemplate.update(Movie.class)
                 .matching(Criteria.where("imdbId").is(imdbId))
-                .apply(new Update().push("reviewsIds").value(review))
+                .apply(new Update().push("reviews").value(review))
                 .first();
 
         return review;
